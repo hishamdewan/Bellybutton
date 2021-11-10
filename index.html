@@ -13,7 +13,9 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-12 jumbotron text-center">
+      <div class="col-xs-12 col-sm-12 col-md-12 jumbotron text-center" 
+      style="background-image: url('http://robdunnlab.com/wp-content/uploads/microbes-sem.jpg');
+      background-size: cover; background-position: center; color: white">
         <h1>Belly Button Biodiversity Dashboard</h1>
         <p>Use the interactive charts below to explore the dataset</p>
       </div>
@@ -33,15 +35,21 @@
         </div>
       </div>
       <div class="col-md-5">
-        <div id="bar"></div>
+        <div id="bar">
+          <p>The bar chart displays the top 10 bacterial species (OTUs) when an individual’s ID is selected.</p>
+        </div>
       </div>
       <div class="col-md-5">
-        <div id="gauge"></div>
+        <div id="gauge">
+        <p>The gauge chart  displays the weekly washing frequency's value and displays a progress.</p>
+        </div>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
-        <div id="bubble"></div>
+        <div id="bubble">
+          <p> The bubble chart displays bacteria cultures per sample.</p>
+        </div>
       </div>
     </div>
   </div>

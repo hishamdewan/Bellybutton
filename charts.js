@@ -3,7 +3,7 @@ function init() {
   var selector = d3.select("#selDataset");
 
   // Use the list of sample names to populate the select options
-  d3.json("samples.json").then((data) => {
+  d3.json("C:\\Users\\hisha\\OneDrive\\UC Berkley Data Analytics\\Week 12 Plotly\\Bellybutton\\samples.json").then((data) => {
     var sampleNames = data.names;
 
     sampleNames.forEach((sample) => {
@@ -83,14 +83,14 @@ function buildCharts(sample) {
     var barData = [{
       x: values.slice(0, 10).reverse(),
       y: yticks,
-      type: "bar"
+      type: "bar",
       text: labels.slice(0, 10).reverse(),
       orientation: "h"
     }];
 
     // 9. Create the layout for the bar chart. 
     var barLayout = {
-      title = "Top 10 Bacteria Cultures Found"
+      title: "Top 10 Bacteria Cultures Found",
       margin:{
       l: 100,
       r: 100,
@@ -138,16 +138,31 @@ function buildCharts(sample) {
     var washingFrequency = gaugeResult.wfreq;
 
     // 4. Create the trace for the gauge chart.
-    var gaugeData = [
-     
-    ];
+    var gaugeData = [{ 
+        value: washingFrequency,
+        type: "indicator",
+        mode: "gauge+number",
+        title: { text: "<b>Bellybutton Washing Frequency</b>" },
+        gauge: {
+          bar: { color: "black" },
+          axis: { range: [0, 10] },
+          steps:[
+            {range: [0, 2], color: "red"},
+            {range: [2, 4], color: "orange"},
+            {range: [4, 6], color: "yellow"},
+            {range: [6, 8], color: "yellowgreen"},
+            {range: [8, 10], color: "green"}
+          ]
+        }   
+      }];
     
     // 5. Create the layout for the gauge chart.
     var gaugeLayout = { 
-     
+      automargine: true
+
     };
 
     // 6. Use Plotly to plot the gauge data and layout.
-    Plotly.newPlot();
+    Plotly.newPlot("gauge", gaugeData, gaugeLayout);
   });
 }
