@@ -1,4 +1,4 @@
-# Bellybutton
+# Bellybutton Biodiversity
 Using JavaScript and HTML to visualize biodiversity of bacteria in navels.
 
 You can see the website in the following [GitHub Page](https://hishamdewan.github.io/Bellybutton/). 
