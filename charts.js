@@ -3,7 +3,7 @@ function init() {
   var selector = d3.select("#selDataset");
 
   // Use the list of sample names to populate the select options
-  d3.json("C:\\Users\\hisha\\OneDrive\\UC Berkley Data Analytics\\Week 12 Plotly\\Bellybutton\\samples.json").then((data) => {
+  d3.json("samples.json").then((data) => {
     var sampleNames = data.names;
 
     sampleNames.forEach((sample) => {
@@ -54,11 +54,11 @@ function buildMetadata(sample) {
 }
 
 
-
 // 1. Create the buildCharts function.
 function buildCharts(sample) {
   // 2. Use d3.json to load and retrieve the samples.json file 
   d3.json("samples.json").then((data) => {
+    
     // 3. Create a variable that holds the samples array. 
     var metadata = data.samples;
 
@@ -91,15 +91,15 @@ function buildCharts(sample) {
     // 9. Create the layout for the bar chart. 
     var barLayout = {
       title: "Top 10 Bacteria Cultures Found",
-      margin:{
-      l: 100,
-      r: 100,
-      t: 100,
-      b: 100
-    }
+    //   margin:{
+    //   l: 100,
+    //   r: 100,
+    //   t: 100,
+    //   b: 100
+    // }
     };
     // 10. Use Plotly to plot the data with the layout. 
-    Plotly.newPlot("plot", barData, barLayout)      
+    Plotly.newPlot("bar", barData, barLayout)      
 
 // Deliverable 2: Create a Bubble Chart 
     // 1. Create the trace for the bubble chart https://plotly.com/javascript/bubble-charts/.
@@ -110,7 +110,9 @@ function buildCharts(sample) {
       mode: 'markers',
       marker: {
         color: ids,
-        size: values}
+        size: values,
+        // Colorscale documentation here: https://plotly.com/javascript/colorscales/
+        colorscale: 'Earth'}
     }];
 
     // 2. Create the layout for the bubble chart.
